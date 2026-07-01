@@ -15,5 +15,9 @@ coverage/
 # OS files
 .DS_Store
 
+# Image assets
+*.png
+*.PNG
+
 # Edge profile
 .edge-responsive-profile/
