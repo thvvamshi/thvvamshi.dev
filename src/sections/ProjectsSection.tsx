@@ -15,9 +15,22 @@ import type { Project } from "../types/project";
 
 const allFilter = "All";
 const initialProjectCount = 6;
+const maxProjectCount = 10;
 
 export function ProjectsSection() {
-  const projects = useMemo(() => getProjects(), []);
+  const projects = useMemo(() => {
+    const seen = new Set<string>();
+
+    return getProjects().filter((project) => {
+      const key = `${project.title.toLowerCase()}|${project.category.toLowerCase()}`;
+      if (seen.has(key)) {
+        return false;
+      }
+
+      seen.add(key);
+      return true;
+    });
+  }, []);
   const categories = useMemo(() => [allFilter, ...getProjectCategories()], []);
   const technologies = useMemo(() => [allFilter, ...getProjectTechnologies()], []);
   const [search, setSearch] = useState("");
@@ -44,9 +57,8 @@ export function ProjectsSection() {
     });
   }, [category, projects, search, technology]);
 
-  const featuredProjects = filteredProjects.filter((project) => project.featured);
   const visibleProjects = showAllProjects
-    ? filteredProjects
+    ? filteredProjects.slice(0, maxProjectCount)
     : filteredProjects.slice(0, initialProjectCount);
 
   const clearFilters = () => {
@@ -60,12 +72,12 @@ export function ProjectsSection() {
     <AnimatedSection id="projects">
       <Container>
         <SectionHeader
-          eyebrow="Featured Projects"
-          title="Production-minded systems and full-stack products."
-          description="Selected work across distributed deployment infrastructure, realtime AI applications, backend platforms, and end-to-end product engineering."
+          eyebrow="Engineering Work"
+          title="Selected projects."
+          description="A focused archive of backend platforms, distributed systems, realtime applications, and AI products."
         />
 
-        <div className="surface mb-10 rounded-lg p-3 sm:p-4">
+        <div className="surface mb-8 rounded-lg p-3 sm:p-4">
           <div className="grid gap-4 lg:grid-cols-[1fr_auto] lg:items-center">
             <label className="relative block">
               <span className="sr-only">Search projects</span>
@@ -143,25 +155,12 @@ export function ProjectsSection() {
           </div>
         </div>
 
-        {featuredProjects.length ? (
-          <div className="mb-14 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-            {featuredProjects.map((project, index) => (
-              <ProjectCard
-                key={project.id}
-                project={project}
-                index={index}
-                onOpen={setSelectedProject}
-              />
-            ))}
-          </div>
-        ) : null}
-
-        <div className="mb-6 flex flex-wrap items-end justify-between gap-4">
+        <div className="mb-5 flex flex-wrap items-end justify-between gap-4">
           <div>
-            <p className="technical-label text-accent-300">Project repository</p>
-            <h3 className="mt-2 text-2xl font-black text-white">All engineering work</h3>
+            <p className="technical-label text-accent-300">Project archive</p>
+            <h3 className="mt-2 text-xl font-black text-white">Focused repository work.</h3>
           </div>
-          <p className="font-mono text-xs text-zinc-500">
+          <p className="text-xs font-semibold text-zinc-500">
             {filteredProjects.length} result{filteredProjects.length === 1 ? "" : "s"} indexed
           </p>
         </div>

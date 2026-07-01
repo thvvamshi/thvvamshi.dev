@@ -11,7 +11,7 @@ export const profile = {
   heroImage:
     "https://res.cloudinary.com/dedsrw0qv/image/upload/v1751550015/image-2_yoijeb.jpg",
   resumeUrl:
-    "https://drive.google.com/file/d/1_Tp6pNHhrgF6M-Na4N5myxjyftmjggdC/view?usp=sharing",
+    "https://drive.google.com/file/d/1iHb3a1ZUuDPKAl9viWr7BlOwhBdFFt-Z/view",
   about:
     "I build scalable backend systems, event-driven platforms, cloud-native applications, and full-stack products.",
   interests:
@@ -23,7 +23,7 @@ export const profile = {
   details: [
     { label: "Name", value: "BODA VAMSHI KUMAR" },
     { label: "D.O.B", value: "Nov 02, 2002" },
-    { label: "Address", value: "Hanumkonda, Warangal, TS" },
+    { label: "Address", value: "Warangal, TS" },
     { label: "Pincode", value: "506015" },
     { label: "Email", value: "bodavamshikumar@gmail.com" },
   ],
@@ -33,10 +33,9 @@ export const navItems: NavItem[] = [
   { label: "Home", href: "#home" },
   { label: "About", href: "#about" },
   { label: "Skills", href: "#skills" },
-  { label: "Experience", href: "#experience" },
   { label: "Projects", href: "#projects" },
+  { label: "Experience", href: "#experience" },
   { label: "GitHub", href: "#github" },
-  { label: "Education", href: "#education" },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -56,7 +55,7 @@ export const contactItems: ContactItem[] = [
   {
     label: "Email Address",
     value: "bodavamshikumar@gmail.com",
-    href: "mailto:bodavamshikumar@gmail.com",
+    href: "https://mail.google.com/mail/?view=cm&fs=1&to=bodavamshikumar@gmail.com",
     icon: Mail,
   },
 ];

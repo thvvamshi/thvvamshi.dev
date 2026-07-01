@@ -26,10 +26,10 @@ export function AnimatedSection({
   return (
     <motion.section
       id={id}
-      className={`scroll-mt-24 py-20 sm:py-24 lg:py-28 ${className}`}
+      className={`scroll-mt-24 py-16 sm:py-20 lg:py-24 ${className}`}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: false, amount: 0.16 }}
+      viewport={{ once: true, amount: 0.08 }}
       variants={sectionVariants}
     >
       {children}

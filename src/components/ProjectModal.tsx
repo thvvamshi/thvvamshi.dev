@@ -74,7 +74,7 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
               <p className="technical-label text-accent-300">
                 {project.category}
               </p>
-              <h3 id="project-modal-title" className="mt-3 text-2xl font-black text-white sm:text-3xl">
+              <h3 id="project-modal-title" className="mt-3 text-xl font-semibold text-zinc-50 sm:text-2xl">
                 {project.title}
               </h3>
               <p className="mt-5 text-base leading-8 text-zinc-300">{project.description}</p>

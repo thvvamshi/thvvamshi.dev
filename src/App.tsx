@@ -1,7 +1,6 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
-import { Header } from "./components/Header";
-import { ScrollProgress } from "./components/ScrollProgress";
+import { MainLayout } from "./components/MainLayout";
 import { HomePage } from "./pages/HomePage";
 
 function AnimatedRoutes() {
@@ -31,9 +30,9 @@ function AnimatedRoutes() {
 export function App() {
   return (
     <BrowserRouter>
-      <ScrollProgress />
-      <Header />
-      <AnimatedRoutes />
+      <MainLayout>
+        <AnimatedRoutes />
+      </MainLayout>
     </BrowserRouter>
   );
 }

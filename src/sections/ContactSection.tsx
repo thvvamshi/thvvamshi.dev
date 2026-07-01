@@ -57,8 +57,8 @@ export function ContactSection() {
       <Container>
         <SectionHeader
           eyebrow="Contact"
-          title="Let's connect about systems, products, and engineering."
-          description="Feel free to reach out if you have any questions or would like to discuss production software, backend platforms, AI applications, or cloud infrastructure."
+          title="Let's connect."
+          description="Reach out if you want to talk about production software, backend platforms, AI applications, or cloud infrastructure."
         />
 
         <div className="grid overflow-hidden rounded-lg border border-white/[0.08] bg-[#08090a] lg:grid-cols-3">
@@ -88,7 +88,7 @@ export function ContactSection() {
                   />
                 </div>
                 <p className="technical-label mt-6">{item.label}</p>
-                <p className="mt-2 break-words text-sm font-bold text-white">{item.value}</p>
+                <span className="sr-only">{item.value}</span>
               </motion.a>
             );
           })}
@@ -103,8 +103,8 @@ export function ContactSection() {
             transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
           >
             <p className="technical-label text-accent-300">Find me on</p>
-            <h3 className="mt-3 text-2xl font-black text-white">Continue the conversation.</h3>
-            <p className="mt-4 text-sm leading-7 text-zinc-400">
+            <h3 className="mt-3 text-xl font-semibold text-zinc-50">Continue the conversation.</h3>
+            <p className="mt-4 text-sm leading-relaxed text-zinc-400">
               The fastest way to understand my work is through the systems, repositories,
               and product thinking behind them.
             </p>
@@ -142,7 +142,7 @@ export function ContactSection() {
             transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
           >
             <input type="hidden" name="access_key" value={contactForm.accessKey} />
-            <h3 className="text-2xl font-black text-white">
+            <h3 className="text-xl font-semibold text-zinc-50">
               Get In <span className="text-accent-400">Touch</span>
             </h3>
             <div className="mt-6 grid gap-4 sm:grid-cols-2">

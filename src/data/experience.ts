@@ -2,27 +2,27 @@ import type { TimelineItem } from "../types/content";
 
 export const experience: TimelineItem[] = [
   {
-    period: "Current Focus",
-    title: "Software Engineer",
-    organization: "Backend, cloud, and AI application engineering",
+    period: "Distributed Systems",
+    title: "Cloud Deployment Platform",
+    organization: "Backend and infrastructure engineering",
     description:
-      "Building scalable backend systems, event-driven platforms, real-time workflows, and cloud-native applications with a strong focus on maintainability and production readiness.",
-    tags: ["Node.js", "PostgreSQL", "Kafka", "AWS", "System Design"],
+      "Event-driven deployment workflow with Kafka orchestration, AWS services, and realtime status updates.",
+    tags: ["Node.js", "Kafka", "AWS ECS", "ClickHouse", "Docker"],
   },
   {
-    period: "Project Work",
-    title: "Production Systems Builder",
-    organization: "GitHub portfolio projects",
+    period: "Realtime and AI",
+    title: "Asynchronous Product Systems",
+    organization: "Voice, exam generation, and streaming applications",
     description:
-      "Developing full-stack platforms with authentication, RBAC, analytics dashboards, Dockerized services, CI/CD workflows, async workers, and realtime collaboration.",
-    tags: ["React", "Prisma", "Redis", "Socket.IO", "Docker"],
+      "Realtime communication, background processing, and AI-assisted workflows.",
+    tags: ["TypeScript", "Redis", "BullMQ", "Socket.IO", "Groq"],
   },
   {
-    period: "Engineering Direction",
-    title: "Distributed Systems Learner",
-    organization: "Cloud deployment and AI systems",
+    period: "Backend Platforms",
+    title: "Secure APIs and Data Workflows",
+    organization: "Identity, finance, and team-management systems",
     description:
-      "Exploring how large-scale systems work internally through deployment orchestration, streaming infrastructure, observability, LLM integrations, and resilient APIs.",
-    tags: ["ECS", "S3", "ClickHouse", "BullMQ", "Groq"],
+      "Authentication, RBAC, identity reconciliation, and production data workflows.",
+    tags: ["Express.js", "PostgreSQL", "MySQL", "Prisma", "JWT"],
   },
 ];

@@ -32,33 +32,15 @@ export function AboutSection() {
     <AnimatedSection id="about">
       <Container>
         <SectionHeader
-          eyebrow="About Me"
-          title="Software engineer with a systems mindset."
-          description="I care about the full path from a clear product interface to the backend architecture, infrastructure, and operational decisions that keep it reliable."
+          eyebrow="About"
+          title="I build useful software."
         />
 
-        <div className="grid gap-6 lg:grid-cols-[0.8fr_1.2fr] lg:gap-8">
+        <div className="grid gap-6 lg:grid-cols-[0.86fr_1.14fr] lg:gap-8">
           <div className="surface relative overflow-hidden rounded-lg p-6 sm:p-8">
             <div className="absolute left-0 top-8 h-20 w-px bg-accent-300" />
-            <p className="text-xl font-semibold leading-9 text-zinc-100">{profile.about}</p>
-            <p className="mt-5 leading-8 text-zinc-300">{profile.interests}</p>
-            <p className="mt-5 leading-8 text-zinc-300">{profile.philosophy}</p>
-
-            <dl className="mt-8 grid gap-0 border-t border-white/[0.08]">
-              {profile.details.map((detail) => (
-                <div
-                  key={detail.label}
-                  className="grid gap-1 border-b border-white/[0.08] py-3 sm:grid-cols-[8rem_1fr]"
-                >
-                  <dt className="technical-label">
-                    {detail.label}
-                  </dt>
-                  <dd className="break-words text-sm font-semibold text-zinc-100 sm:text-base">
-                    {detail.value}
-                  </dd>
-                </div>
-              ))}
-            </dl>
+            <p className="text-sm leading-7 text-zinc-300">{profile.about}</p>
+            <p className="mt-4 text-sm leading-7 text-zinc-300">{profile.interests}</p>
           </div>
 
           <div className="grid gap-4 sm:grid-cols-2">
@@ -72,8 +54,8 @@ export function AboutSection() {
                     index === 0 ? "sm:col-span-2" : ""
                   }`}
                 >
-                  <span className="absolute right-4 top-3 font-mono text-5xl font-black text-white/[0.025]">
-                    0{index + 1}
+                  <span className="absolute right-4 top-4 rounded-full border border-white/[0.08] px-2 py-1 text-[0.65rem] font-bold text-zinc-600">
+                    {String(index + 1).padStart(2, "0")}
                   </span>
                   <div className="mb-5 inline-flex h-11 w-11 items-center justify-center rounded-md border border-accent-300/25 bg-accent-300/[0.07] text-accent-300 transition group-hover:border-accent-300/50">
                     <Icon size={22} />

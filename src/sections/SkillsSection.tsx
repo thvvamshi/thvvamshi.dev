@@ -1,11 +1,8 @@
 import { motion } from "framer-motion";
-import { Braces, CloudCog, Code2, Database, GitBranch, ServerCog } from "lucide-react";
 import { AnimatedSection } from "../components/AnimatedSection";
 import { Container } from "../components/Container";
 import { SectionHeader } from "../components/SectionHeader";
-import { skillGroups, skillSignals } from "../data/skills";
-
-const icons = [Code2, Braces, ServerCog, Database, CloudCog, GitBranch];
+import { skillMarks } from "../data/skills";
 
 export function SkillsSection() {
   return (
@@ -13,90 +10,41 @@ export function SkillsSection() {
       <Container>
         <SectionHeader
           eyebrow="Technical Capability"
-          title="A stack selected for shipping, scaling, and operating software."
-          description="I combine product-minded frontend execution with backend depth, realtime infrastructure, data systems, and practical cloud delivery."
+          title="Stack"
         />
 
-        <div className="grid gap-6 lg:grid-cols-[0.72fr_1.28fr]">
-          <div className="surface rounded-lg p-5 sm:p-6">
-            <div className="mb-6 flex items-center justify-between border-b border-white/[0.08] pb-4">
-              <div>
-                <p className="technical-label">Capability index</p>
-                <p className="mt-2 text-lg font-black text-white">Engineering focus</p>
-              </div>
-              <span className="font-mono text-xs text-emerald-300">active</span>
-            </div>
-
-            <div className="grid gap-6">
-              {skillSignals.map((signal, index) => (
-                <motion.div
-                  key={signal.label}
-                  initial={{ opacity: 0, x: -16 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true, amount: 0.3 }}
-                  transition={{ duration: 0.45, delay: index * 0.07 }}
-                >
-                  <div className="mb-2 flex items-center justify-between gap-3">
-                    <p className="text-sm font-bold text-zinc-200">{signal.label}</p>
-                    <p className="font-mono text-xs font-bold text-accent-300">{signal.value}%</p>
-                  </div>
-                  <div className="h-1 overflow-hidden bg-white/[0.08]">
-                    <motion.div
-                      className="h-full bg-gradient-to-r from-accent-400 via-accent-300 to-emerald-300"
-                      initial={{ width: 0 }}
-                      whileInView={{ width: `${signal.value}%` }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 1, delay: 0.1 + index * 0.08 }}
-                      role="progressbar"
-                      aria-label={`${signal.label} proficiency`}
-                      aria-valuenow={signal.value}
-                      aria-valuemin={0}
-                      aria-valuemax={100}
-                    />
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-
-            <div className="mt-8 border-t border-white/[0.08] pt-5">
-              <p className="text-sm leading-7 text-zinc-400">
-                Strongest at connecting frontend experience to reliable APIs, data models,
-                realtime events, and deployment workflows.
-              </p>
-            </div>
-          </div>
-
-          <div className="overflow-hidden rounded-lg border border-white/[0.08] bg-[#08090a]">
-            {skillGroups.map((group, index) => {
-              const Icon = icons[index] ?? Code2;
+        <div className="surface rounded-2xl p-4 sm:p-5">
+          <div className="grid grid-cols-4 gap-3 sm:grid-cols-5 lg:grid-cols-6 xl:grid-cols-8">
+            {skillMarks.map((mark, index) => {
+              const Icon = mark.icon;
 
               return (
-                <motion.article
-                  key={group.title}
-                  className="group grid gap-4 border-b border-white/[0.08] p-5 last:border-b-0 sm:grid-cols-[10rem_1fr] sm:items-center sm:p-6"
-                  initial={{ opacity: 0, y: 14 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, amount: 0.3 }}
-                  transition={{ duration: 0.45, delay: index * 0.04 }}
+                <motion.button
+                  key={mark.label}
+                  type="button"
+                  title={`${mark.label} - ${mark.category}`}
+                  aria-label={`${mark.label} - ${mark.category}`}
+                  className="group relative aspect-square rounded-2xl border border-zinc-800 bg-zinc-950/55 text-zinc-100 backdrop-blur-xl transition duration-300 hover:border-zinc-600 hover:bg-white/[0.05]"
+                  initial={{ opacity: 0, y: 14, scale: 0.96 }}
+                  whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                  viewport={{ once: true, amount: 0.35 }}
+                  transition={{ duration: 0.45, delay: index * 0.035 }}
+                  whileHover={{ scale: 1.06, rotate: -1 }}
                 >
-                  <div className="flex items-center gap-3">
-                    <span className="inline-flex h-9 w-9 items-center justify-center rounded-md border border-white/[0.08] bg-white/[0.035] text-accent-300 transition group-hover:border-accent-300/[0.35]">
-                      <Icon size={17} />
-                    </span>
-                    <h3 className="text-sm font-black text-white">{group.title}</h3>
-                  </div>
-                  <div className="flex flex-wrap gap-x-5 gap-y-2">
-                    {group.items.map((item) => (
-                      <motion.span
-                        key={item}
-                        className="font-mono text-xs font-medium text-zinc-400 transition hover:text-accent-300"
-                        whileHover={{ x: 2 }}
-                      >
-                        {item}
-                      </motion.span>
-                    ))}
-                  </div>
-                </motion.article>
+                  <div className="absolute inset-0 rounded-2xl bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.08),transparent_56%)] opacity-70 transition group-hover:opacity-100" />
+                  <span className="relative z-10 flex h-full items-center justify-center">
+                    <Icon
+                      className="h-7 w-7 transition duration-300 group-hover:scale-110"
+                      style={{ color: mark.color ?? "#f5f5f5" }}
+                    />
+                  </span>
+                  <span className="absolute inset-x-2 bottom-2 translate-y-1 rounded-md border border-zinc-800 bg-black/85 px-2 py-1 text-[0.6rem] font-medium uppercase tracking-[0.12em] text-zinc-300 opacity-0 backdrop-blur-md transition duration-200 group-hover:translate-y-0 group-hover:opacity-100">
+                    {mark.label}
+                  </span>
+                  <span className="absolute left-2 top-2 rounded-full border border-zinc-800 bg-black/70 px-2 py-1 text-[0.55rem] font-medium uppercase tracking-[0.12em] text-zinc-500 opacity-0 transition duration-200 group-hover:opacity-100">
+                    {mark.category}
+                  </span>
+                </motion.button>
               );
             })}
           </div>

@@ -2,11 +2,18 @@ import type { PropsWithChildren } from "react";
 
 interface ContainerProps extends PropsWithChildren {
   className?: string;
+  width?: "content" | "wide" | "full";
 }
 
-export function Container({ className = "", children }: ContainerProps) {
+const widthClasses = {
+  content: "max-w-4xl px-6 sm:px-8",
+  wide: "max-w-6xl px-4 sm:px-6",
+  full: "w-full px-4 sm:px-6",
+} as const;
+
+export function Container({ className = "", children, width = "content" }: ContainerProps) {
   return (
-    <div className={`mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8 ${className}`}>
+    <div className={`mx-auto w-full ${widthClasses[width]} ${className}`}>
       {children}
     </div>
   );

@@ -18,7 +18,7 @@ export interface SkillGroup {
 
 export interface SkillSignal {
   label: string;
-  value: number;
+  description: string;
 }
 
 export interface TimelineItem {

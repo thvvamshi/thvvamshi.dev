@@ -1,6 +1,18 @@
 import { projects } from "../content/projects";
 
-export const getProjects = () => projects;
+export const getProjects = () => {
+  const seen = new Set<string>();
+
+  return projects.filter((project) => {
+    const key = `${project.id.toLowerCase()}|${project.title.toLowerCase()}`;
+    if (seen.has(key)) {
+      return false;
+    }
+
+    seen.add(key);
+    return true;
+  });
+};
 
 export const getFeaturedProjects = () =>
   getProjects().filter((project) => project.featured);

@@ -1,7 +1,6 @@
 import { lazy, Suspense } from "react";
 import { AboutSection } from "../sections/AboutSection";
 import { ContactSection } from "../sections/ContactSection";
-import { EducationSection } from "../sections/EducationSection";
 import { ExperienceSection } from "../sections/ExperienceSection";
 import { Footer } from "../sections/Footer";
 import { HeroSection } from "../sections/HeroSection";
@@ -20,18 +19,17 @@ export function HomePage() {
       <HeroSection />
       <AboutSection />
       <SkillsSection />
-      <ExperienceSection />
       <ProjectsSection />
+      <ExperienceSection />
       <Suspense
         fallback={
-          <div className="mx-auto max-w-7xl px-4 py-20 text-center text-sm font-semibold text-zinc-500 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-4xl px-6 py-20 text-center text-sm font-medium text-zinc-500 sm:px-8">
             Loading GitHub activity...
           </div>
         }
       >
         <GitHubActivitySection />
       </Suspense>
-      <EducationSection />
       <ContactSection />
       <Footer />
     </main>

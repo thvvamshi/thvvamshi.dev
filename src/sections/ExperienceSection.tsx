@@ -10,10 +10,9 @@ export function ExperienceSection() {
       <Container>
         <SectionHeader
           eyebrow="Experience"
-          title="Project-backed engineering experience."
-          description="My experience is grounded in building complete systems: defining architecture, implementing product workflows, integrating infrastructure, and improving reliability through iteration."
+          title="Selected work"
         />
-        <div className="grid gap-5 lg:grid-cols-3">
+        <div className="grid gap-4 lg:grid-cols-2 xl:grid-cols-3">
           {experience.map((item, index) => (
             <TimelineCard key={item.title} item={item} index={index} />
           ))}

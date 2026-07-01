@@ -16,6 +16,7 @@ export const audioStreaming: Project = {
   ],
   githubUrl:
     "https://github.com/thvvamshi/Real-time_audio_streaming_application",
+  liveUrl: "https://real-time-audio-streaming-application.onrender.com",
   image:
     "https://opengraph.githubassets.com/07299b8e913ec09cb7b33f038b688537036bb9ba88db9ff497c23ce649ed5a30/thvvamshi/Real-time_audio_streaming_application",
   featured: true,
